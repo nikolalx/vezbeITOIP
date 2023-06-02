@@ -1,0 +1,86 @@
+* {
+    margin: 0;
+    padding: 0;
+
+}
+
+body {
+    width: 60%;
+    margin: auto;
+}
+
+.container {  display: grid;
+    background-color: rgb(254, 238, 255);
+    padding: 4px;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+  gap: 3px 3px;
+  grid-auto-flow: row;
+  border: solid #000 2px;
+  grid-template-areas:
+    "Naslov Naslov Naslov"
+    "p1 p2 p2"
+    "p3 p4 p4"
+    "p5 p6 p6"
+    "p7 p8 p8"
+    "p9 p10 p10"
+    "p11 p12 p12"
+    "p13 p13 p13"
+    "p14 p14 p14";
+}
+
+.Naslov { grid-area: Naslov; 
+color: rgb(222, 9, 12);
+display: flex;
+justify-content: center;
+align-items: center;
+background-color: rgb(255, 254, 171);
+
+}
+
+.p1 { grid-area: p1; background-color: rgb(0, 204, 255);}
+
+.p2 { grid-area: p2; background-color: rgb(0, 204, 255);
+
+}
+
+.p3 { grid-area: p3; background-color: rgb(0, 204, 255);
+  }
+
+.p4 { grid-area: p4; background-color: rgb(0, 204, 255);}
+
+.p5 { grid-area: p5; background-color: rgb(0, 204, 255);}
+
+.p6 { grid-area: p6; background-color: rgb(0, 204, 255);}
+
+.p7 { grid-area: p7; background-color: rgb(0, 204, 255);}
+
+.p8 { grid-area: p8; background-color: rgb(0, 204, 255);}
+
+.p9 { grid-area: p9; background-color: rgb(0, 204, 255);}
+
+.p10 { grid-area: p10; background-color: rgb(0, 204, 255);}
+
+.p11 { grid-area: p11; background-color: rgb(0, 204, 255);}
+
+.p12 { grid-area: p12; background-color: rgb(0, 204, 255);}
+
+.p13 { grid-area: p13; background-color: rgb(0, 204, 255);}
+
+.p14 { grid-area: p14; background-color: rgb(0, 204, 255);}
+
+.p1, .p3, .p5, .p7, .p9, .p11 {
+    display: flex;
+    align-items: center;
+    padding-left: 1rem;
+}
+
+.p2 input, .p4 input, .p6 textarea, .p12 select, .p13 input, .p14 input {
+    background-color: rgb(205, 255, 204);
+}
+
+.p2 input, .p4 input, .p6 textarea, .p12 select {
+    width: 90%;
+    display: flex;
+    height: min-content;
+}
