@@ -36,6 +36,9 @@ body {
     background-color: #FFF;
   }
   /* forma 1 */
+
+ 
+
   .form1 fieldset, .form3 fieldset {
     background-color: #FFF;
     display: flex;
@@ -99,5 +102,4 @@ body {
     width: 15%;
     height: 10%;
     padding: 0;
-
   }
