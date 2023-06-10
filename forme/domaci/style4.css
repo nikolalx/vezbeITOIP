@@ -1,0 +1,112 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    margin: 4rem;
+}
+
+.orange {
+    background-color: orange;
+    width: fit-content;
+}
+
+p {
+    font-size: larger;
+    color: yellow;
+    padding: 1rem 0 1rem 1rem;
+}
+
+.container {  
+
+    background-color: rgb(34, 37, 54);
+    color: yellow;
+    width: 450px;
+    padding: 1rem 0 1rem 0;
+
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 20px 20px;
+    grid-auto-flow: row;
+    grid-template-areas:
+      "firstName firstNameInput"
+      "lastName lastNameInput"
+      "dateOfBirth dateOfBirthInput"
+      "gender genderInput"
+      "county countryInput"
+      "email emailInput"
+      "phone phoneInput"
+      "password passwordInput"
+      "confirmPassword confirmPasswordInput"
+      ". agreeToTheTerms";
+  }
+  
+  .firstName { grid-area: firstName; }
+  
+  .firstNameInput { grid-area: firstNameInput; }
+  
+  .lastName { grid-area: lastName; }
+  
+  .lastNameInput { grid-area: lastNameInput; }
+  
+  .dateOfBirth { grid-area: dateOfBirth; }
+  
+  .dateOfBirthInput { grid-area: dateOfBirthInput; }
+  
+  .gender { grid-area: gender; }
+  
+  .genderInput { grid-area: genderInput; }
+  
+  .county { grid-area: county; }
+  
+  .countryInput { grid-area: countryInput; }
+
+  .email { grid-area: email; }
+  
+  .emailInput { grid-area: emailInput; }
+  
+  .phone { grid-area: phone; }
+  
+  .phoneInput { grid-area: phoneInput; }
+  
+  .password { grid-area: password; }
+  
+  .passwordInput { grid-area: passwordInput; }
+  
+  .confirmPassword { grid-area: confirmPassword; }
+  
+  .confirmPasswordInput { grid-area: confirmPasswordInput; }
+  
+  .agreeToTheTerms { grid-area: agreeToTheTerms; }
+  
+  .firstName, .lastName, .dateOfBirth, .gender, .county, .email, .phone, .password, .confirmPassword {
+    text-align: right;
+  }
+
+  .countryInput  select{
+    width: 80px;
+}
+
+.submitAndReset {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    padding: 1rem 1rem 1rem 1rem;
+}
+
+.submitAndReset input {
+    width: 100px;
+    height: 50px;
+}
+
+#submit {
+    background-color: #090;
+    color: #FFF;
+}
+
+#reset {
+    background-color: #900;
+    color: #FFF;
+}
