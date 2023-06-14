@@ -54,9 +54,11 @@ let pokemoni = [
 //vraca niz sposobnosti svih pokemona
 
 // function sposobnost(array) {
+//     let str = []
 //     array.forEach(element => {
-//         return console.log(element.sposobnosti[0]);
+//         str.push(element.sposobnosti[0]);
 //     });
+//     return str
 // }
 
 // sortiranje po brzini rastuce
