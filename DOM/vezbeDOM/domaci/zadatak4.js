@@ -5,30 +5,29 @@
 
 //s. s...s.h
 
-const textInput = document.querySelector('#text')
+const text = document.querySelector('#text')
+
 const btn = document.querySelector('#btn')
 
-btn.addEventListener('click', () => {
-    let str = textInput.value
-    let refText = ''
-    let brojac = 0
+const refaktorisi = () => {
+    poveznik = text.value
+    let str = ''
 
-    for(let i = 0; i < str.length; i++){
-        refText += str.charAt(i)
+    for(let i = 0; i < poveznik.length; i++){
+        str += text.textContent.charAt(i)
+        if(text.textContent.charAt(i) === '.' && text.textContent.charAt(i + 1) != '.' && text.textContent.charAt(i - 1) != '.')
+            str += ' '
         
-        if(str.charAt(i) === '.' && str.charAt(i + 1) === '.')
-            brojac +1
+        if(text.textContent.charAt(i) === '.' && text.textContent.charAt(i - 2) === '.' && text.textContent.charAt(i - 1) === '.')
+            str += ' '
 
-        if(str.charAt(i) === '.' && brojac === 2 && str.charAt(i + 1) !== '.')
-            refText += ' '
-            brojac = 0
-
-        if(str.charAt(i) === '.' && str.charAt(i + 1) != '.' && brojac === 0)
-            refText += ' '
-
-        if(str.charAt(i) === '!' || str.charAt(i) === '?')
-            refText += ' '
+        if(text.textContent.charAt(i) === '?' || text.textContent.charAt(i) === '!')
+            str += ' '
     }
 
-    textInput.value = refText
+    text.textContent = str
+}
+
+btn.addEventListener('click', () => {
+    refaktorisi()
 })

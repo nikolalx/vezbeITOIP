@@ -1,17 +1,21 @@
 // Napisati kod koji racuna faktorijel broja
 
 const br = document.querySelector('#broj')
-const rezultat = document.querySelector('#resenje')
+
+const resenje = document.querySelector('#resenje')
 
 const btn = document.querySelector('#btn')
 
-btn.addEventListener('click', () => {
+const faktorijel = () => {
+    let rezultat = 1
 
-    let resenje = 1
-
-    for(let i = 1; i <= br.value; i++){
-        resenje *= i
+    for(let i = 1; i <= +br.value; i++){
+        rezultat *= i
     }
 
-    rezultat.value = resenje
+    resenje.value = rezultat
+}
+
+btn.addEventListener('click', () => {
+    faktorijel()
 })

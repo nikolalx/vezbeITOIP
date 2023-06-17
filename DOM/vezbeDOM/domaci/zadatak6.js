@@ -2,17 +2,11 @@
 // (opciono: Napraviti input polje u koje korisnik moze da unese prvo inputSlovo imena 
 // na koje zeli da mu se izlistaju zaposleni.)
 
-const inputSlovo = document.querySelector('#ime')
+const inputName = document.querySelector('#ime')
 
 const btn = document.querySelector('#btn')
 
 const body = document.body
-
-const divIspis = document.createElement('div')
-
-divIspis.classList.add('row')
-
-body.appendChild(divIspis)
 
 let zaposleni = [
     {
@@ -59,45 +53,117 @@ let zaposleni = [
     }
 ]
 
+const ispis = document.createElement('div')
+ispis.classList.add('row')
 
-    zaposleni.forEach(radnik => {
-        
-        const divRadnik = document.createElement('div')
-        divRadnik.classList.add('item')
-        divRadnik.style.textAlign='center'
+ispis.style.display = 'flex'
+ispis.style.flexDirection = 'column'
+ispis.style.alignItems = 'center'
+ispis.style.rowGap = '1rem'
+body.appendChild(ispis)
 
-        const pIme = document.createElement('p')
+// function prvoSlovo(radnik) {
+
+//     radnik.filter(el => el.ime.charAt(0) === inputName.value)
+
+//     return 
+
+// }
+
+
+ zaposleni.forEach(radnik => {
+
+        let radnici = document.createElement('div')
+        radnici.classList.add('item')
+
+        let pIme = document.createElement('p')
         pIme.textContent = radnik.ime
 
-        const pPrezime = document.createElement('p')
+        let pPrezime = document.createElement('p')
         pPrezime.textContent = radnik.prezime
 
-        const pZanimanje = document.createElement('p')
+        let pZanimanje = document.createElement('p')
         pZanimanje.textContent = radnik.zanimanje
 
-        const pIskustvo = document.createElement('p')
-        pIskustvo.textContent = radnik.iskustvo
+        let pIskustvo = document.createElement('p')
+        pIskustvo = radnik.iskustvo
 
-        const pPlata = document.createElement('p')
-        pPlata.textContent = radnik.plata
+        let pPlata = document.createElement('p')
+        pPlata = radnik.plata
 
-        divRadnik.append(pIme, pPrezime, pZanimanje, pIskustvo, pPlata)
+        radnici.append(pIme, pPrezime, pZanimanje, pIskustvo, pPlata)
+        ispis.appendChild(radnici)
 
-        divIspis.append(divRadnik)
-    });
+        radnici.style.width = '100px'
 
-   
+    // if(radnik.ime.charAt(0) === inputName.value)
 
+    //     let radnici = document.createElement('div')
+    //     radnici.classList.add('item')
+
+    //     let pIme = document.createElement('p')
+    //     pIme.textContent = radnik.ime
+
+    //     let pPrezime = document.createElement('p')
+    //     pPrezime.textContent = radnik.prezime
+
+    //     let pZanimanje = document.createElement('p')
+    //     pZanimanje.textContent = radnik.zanimanje
+
+    //     let pIskustvo = document.createElement('p')
+    //     pIskustvo = radnik.iskustvo
+
+    //     let pPlata = document.createElement('p')
+    //     pPlata = radnik.plata
+
+    //     radnici.append(pIme, pPrezime, pZanimanje, pIskustvo, pPlata)
+    //     ispis.appendChild(radnici)
+
+    //     radnici.style.width = '100px'
+
+
+
+});
 
 
 btn.addEventListener('click', () => {
 
-    let naSlovo = zaposleni.filter((radnik) => {
-        return radnik.ime.charAt(0) === inputSlovo.textContent
-    })
+    while(ispis.hasChildNodes()){
+        ispis.removeChild(ispis.firstChild)
+    }
 
-    const pNaSlovo = document.createElement('p')
-    pNaSlovo.textContent = naSlovo
+    setTimeout(() => {
+        let arr = zaposleni.filter(el => el.ime.charAt(0) === inputName.value)
 
-    divIspis.append(pNaSlovo)
+
+        arr.forEach(radnik  => {
+            let radnici = document.createElement('div')
+            radnici.classList.add('item')
+    
+            let pIme = document.createElement('p')
+            pIme.textContent = radnik.ime
+    
+            let pPrezime = document.createElement('p')
+            pPrezime.textContent = radnik.prezime
+    
+            let pZanimanje = document.createElement('p')
+            pZanimanje.textContent = radnik.zanimanje
+    
+            let pIskustvo = document.createElement('p')
+            pIskustvo = radnik.iskustvo
+    
+            let pPlata = document.createElement('p')
+            pPlata = radnik.plata
+    
+            radnici.append(pIme, pPrezime, pZanimanje, pIskustvo, pPlata)
+            ispis.appendChild(radnici)
+    
+            radnici.style.width = '100px'
+        })
+    
+    }, 500);
+
 })
+
+
+

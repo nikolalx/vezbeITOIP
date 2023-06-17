@@ -1,6 +1,9 @@
-const username = document.querySelector('#username')
+// Napisati kod koji za unetog usera u input proverava da li on vec postoji u nizu. Ukoliko postoji, 
+// polje obojiti u crveno, u suprotnom zelenom bojom.
 
-const brt = document.querySelector('#btn')
+const ime = document.querySelector('#username')
+
+const btn = document.querySelector('#btn')
 
 let korisnici = [
     {
@@ -17,21 +20,21 @@ let korisnici = [
     }
 ]
 
-btn.addEventListener('click', () =>{
+const korisnik = () => {
 
-    let postojnost = false
+    let postoji = false
 
     korisnici.forEach(element => {
-        if (element.user === username.value)
-            postojnost = true        
+        if (ime.value === element.user)
+            postoji = true
+
+        if(postoji)
+        ime.style.border = '2px solid #F00'
+        else 
+        ime.style.border = '2px solid #0F0'
     });
+}
 
-    if (postojnost == true) {
-        username.style.borderColor = '#f00'
-    } else{
-        username.style.borderColor = '#0f0'
-    }
-
-
-
+btn.addEventListener('click', () => {
+    korisnik()
 })
