@@ -45,6 +45,8 @@
 
 const btn1 = document.querySelector('#btn1')
 
+const reset = document.querySelector('#reset')
+
 const body = document.body
 
 let sposobnost = document.createElement('div')
@@ -118,5 +120,11 @@ const izlistajSposobnost = () => {
 
 btn1.addEventListener('click', () => {
     izlistajSposobnost()
+})
+
+reset.addEventListener('click', () => {
+    while (sposobnost.hasChildNodes()) {
+        sposobnost.removeChild(sposobnost.childNodes[0])
+    }
 })
 
