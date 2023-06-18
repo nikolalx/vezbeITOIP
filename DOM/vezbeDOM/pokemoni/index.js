@@ -14,13 +14,11 @@
 // 	карактеристике: напад: 55, одбрана: 30, брзина: 90
 //     ```
 
-// 2. Направити функцију која прима низ горе направљених објеката и враћа један низ способности свих покемона
 
 //     ```
 // 	[<...>,...]
 //     ```
 
-// 3. Сортирати покемоне по брзини, растуће.
 
 // 4. Направити функцију која прима низ покемона, пореди покемоне по јачини и враћа као победника оног који има највећу јачину напада.
 
@@ -102,6 +100,8 @@ let pokemoni = [
     }
 ]
 
+// 2. Направити функцију која прима низ горе направљених објеката и враћа један низ способности свих покемона
+
 const izlistajSposobnost = () => {
 
     pokemoni.forEach(pokemon => {
@@ -125,6 +125,48 @@ btn1.addEventListener('click', () => {
 reset.addEventListener('click', () => {
     while (sposobnost.hasChildNodes()) {
         sposobnost.removeChild(sposobnost.childNodes[0])
+        
+    }
+
+    while (izlistajPoBrzini.hasChildNodes()) {
+        izlistajPoBrzini.removeChild(izlistajPoBrzini.childNodes[0])
     }
 })
 
+// 3. Сортирати покемоне по брзини, растуће.
+
+let izlistajPoBrzini = document.createElement('div')
+
+body.append(izlistajPoBrzini)
+
+const btn2 = document.querySelector('#btn2')
+
+function sort(array) {
+
+    return array.sort((p1, p2) => (p1.karakteristike.brzina < p2.karakteristike.brzina) ? 1 : (p1.karakteristike.brzina > p2.karakteristike.brzina) ? -1 : 0);
+
+     
+
+}
+
+const izbaciPokemonePobrzini = () => {
+
+    pokemoni.forEach(element => {
+
+        let poBrzini = document.createElement('div')
+        poBrzini.classList.add('row')
+
+        let pImePoBrzini = document.createElement('p')
+        pImePoBrzini.textContent = element.ime
+
+        poBrzini.append(pImePoBrzini)
+        izlistajPoBrzini.append(poBrzini)
+
+    });
+
+}
+
+btn2.addEventListener('click', () => {
+    sort(pokemoni)
+    izbaciPokemonePobrzini()
+})
