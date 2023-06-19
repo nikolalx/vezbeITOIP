@@ -20,7 +20,6 @@
 //     ```
 
 
-// 4. Направити функцију која прима низ покемона, пореди покемоне по јачини и враћа као победника оног који има највећу јачину напада.
 
 // 5. За дати html направити скрипту која:
 // 	```
@@ -63,7 +62,7 @@ let pokemoni = [
             odbrana: 30,
             brzina: 90
         },
-        slikaUrl: "./pictures/Pikachu.jpg"
+        slikaUrl: "./pictures/Pikachu.png"
     },
     {
         ime: "Blastoise",
@@ -74,10 +73,10 @@ let pokemoni = [
             odbrana: 40,
             brzina: 35
         },
-        slikaUrl: "./pictures/Blastoise.jpg"
+        slikaUrl: "./pictures/Blastoise.png"
     },
     {
-        ime: "Squirtle",
+        ime: "Totodile",
         vrsta: "vodeni",
         sposobnosti: ["vodeni_top", "vodena_kugla"],
         karakteristike: {
@@ -85,7 +84,7 @@ let pokemoni = [
             odbrana: 30,
             brzina: 80
         },
-        slikaUrl: "./pictures/Squirtle.jpg"
+        slikaUrl: "./pictures/Totodile.png"
     },
     {
         ime: "Charizard",
@@ -96,7 +95,7 @@ let pokemoni = [
             odbrana: 60,
             brzina: 30
         },
-        slikaUrl: "./pictures/Charizard.jpg"
+        slikaUrl: "./pictures/Charizard.png"
     }
 ]
 
@@ -131,6 +130,8 @@ reset.addEventListener('click', () => {
     while (izlistajPoBrzini.hasChildNodes()) {
         izlistajPoBrzini.removeChild(izlistajPoBrzini.childNodes[0])
     }
+
+    pokemoni = pokemoni
 })
 
 // 3. Сортирати покемоне по брзини, растуће.
@@ -142,11 +143,7 @@ body.append(izlistajPoBrzini)
 const btn2 = document.querySelector('#btn2')
 
 function sort(array) {
-
     return array.sort((p1, p2) => (p1.karakteristike.brzina < p2.karakteristike.brzina) ? 1 : (p1.karakteristike.brzina > p2.karakteristike.brzina) ? -1 : 0);
-
-     
-
 }
 
 const izbaciPokemonePobrzini = () => {
@@ -159,7 +156,10 @@ const izbaciPokemonePobrzini = () => {
         let pImePoBrzini = document.createElement('p')
         pImePoBrzini.textContent = element.ime
 
-        poBrzini.append(pImePoBrzini)
+        let pSlika = document.createElement('img')
+        pSlika.src = element.slikaUrl
+
+        poBrzini.append(pImePoBrzini, pSlika)
         izlistajPoBrzini.append(poBrzini)
 
     });
@@ -169,4 +169,31 @@ const izbaciPokemonePobrzini = () => {
 btn2.addEventListener('click', () => {
     sort(pokemoni)
     izbaciPokemonePobrzini()
+})
+
+// 4. Направити функцију која прима низ покемона, пореди покемоне по јачини и враћа као победника оног који има највећу јачину напада.
+
+const btn3 = document.querySelector('#btn3')
+
+const najjaci = () => {
+
+    pokemoni.sort((a, b) => (a.karakteristike.napad > b.karakteristike.napad ? 1 : (a.karakteristike.napad < b.karakteristike.napad ? -1 : 0)));
+}
+
+btn3.addEventListener('click', () => {
+
+    najjaci(pokemoni)
+
+    for(let i = 0; i <= pokemoni[0]; i++){
+        let containerPoNapadu = document.createElement('div')
+        containerPoNapadu.classList.add('row')
+
+        let pNajjaci = document.createElement('p')
+        pNajjaci.textContent = pokemoni[i]
+
+        containerPoNapadu.append(pNajjaci)
+
+        body.append(containerPoNapadu)
+    }
+
 })
