@@ -1,0 +1,81 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: #FFF;
+
+}
+
+body {
+    background: url(./pictures/tareq-ajalyakin-72aEtYlS5K0-unsplash.jpg);
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    padding: 0 7rem;
+    display: flex;
+    align-items: center;
+}
+
+label {
+    font-size: 1.8rem;
+}
+
+.login_form {
+    width: 500px;
+    
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 2px solid #530074;
+    background-color: transparent;
+    backdrop-filter: blur(3px);
+    border-radius: 15px;
+    overflow: hidden;
+    row-gap: 3rem;
+    padding: 2rem;
+}
+
+h1 {
+    font-size: 3rem;
+    position: relative;
+    top: -100px;
+    transition: all .3s ease;
+}
+
+form:hover h1 {
+    top: 0px;
+}
+
+[type='text'], [type='password'] {
+    font-size: 1.8rem;
+    text-align: center;
+    background-color: transparent;
+    border: 1px solid #FFF;
+    border-radius: 25px;
+    padding: 0.5rem;
+}
+
+[type='submit'] {
+    font-size: 1.5rem;
+    background: transparent;
+    font-weight: bold;
+    border: 1px solid #FFF;
+    padding: 0.8rem 4rem;
+    border-radius: 20px;
+    margin-bottom: 1rem;
+    margin-top: 3rem;
+    cursor: pointer;
+}
+.submit_container {
+    width: 100px;
+    position: relative;
+    left: 0;
+    /* overflow: hidden; */
+}
+
+form:hover [type='submit'] {
+    
+}
