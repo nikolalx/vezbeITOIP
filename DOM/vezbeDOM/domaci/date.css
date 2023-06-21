@@ -1,0 +1,36 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.flipper_container {
+    margin: 2rem;
+    width: 80px;
+    height: 20px;
+    border: 2px solid #000;
+    border-radius: 20px;
+    position: absolute;
+    transition: all .4s ease;
+
+}
+
+.flipper {
+    border: 1px solid #c2c2c2;
+    height: 16px;
+    width: 16px;
+    border-radius: 50% 50%;
+    margin-top: 1px;
+    position: relative;
+    left: 1px; 
+    background-color: rgba(128, 128, 128, 0.582);
+    transition: all .4s ease;
+}
+
+.time_container {
+    width: 0;
+    overflow: hidden;
+    position: relative;
+    left: 50px;
+    top: 100px;
+    transition: all .4s ease;
+}

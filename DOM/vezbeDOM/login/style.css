@@ -59,6 +59,7 @@ form:hover h1 {
 }
 
 [type='submit'] {
+    opacity: 0;
     font-size: 1.5rem;
     background: transparent;
     font-weight: bold;
@@ -67,15 +68,12 @@ form:hover h1 {
     border-radius: 20px;
     margin-bottom: 1rem;
     margin-top: 3rem;
+    transition: all .3s ease;
     cursor: pointer;
 }
-.submit_container {
-    width: 100px;
-    position: relative;
-    left: 0;
-    /* overflow: hidden; */
-}
+
 
 form:hover [type='submit'] {
-    
+    opacity: 1;
 }
+
