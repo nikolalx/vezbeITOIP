@@ -109,16 +109,16 @@ function isFormInvalid(username, password){
     return false
 }
 
-function displayErrorMessage(username, password, errorMessageContainer, errorMessageText) {
-    if(username === '')
-        
-}
+// function displayErrorMessage(username, password, errorMessageContainer, errorMessageText) {
+//     if(username === '')
 
-submit.addEventListener('click', (event) => {
-    event.preventDefault()
+// }
 
-    let user = {}
+// submit.addEventListener('click', (event) => {
+//     event.preventDefault()
 
-    if(isFormInvalid(userNameInput, passwordInput))
+//     let user = {}
 
-})
+//     if(isFormInvalid(userNameInput, passwordInput))
+
+// })
