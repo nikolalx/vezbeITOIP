@@ -77,3 +77,11 @@ form:hover [type='submit'] {
     opacity: 1;
 }
 
+.login_content_advice_changer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-width: 60px;
+    height: 60px;
+    font-size: 1.5rem;
+}

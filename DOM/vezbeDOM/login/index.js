@@ -3,10 +3,10 @@ const body = document.body
 const adviceContainer = document.querySelector('#login_content_advice')
 const adviceText = document.querySelector('#login_content_advice_text')
 
-const adviceChanger = document.querySelector('login_content_advice_changer')
+const adviceChanger = document.querySelector('#login_content_advice_changer')
 
 const generateAdvice = () => {
-    let advice = [
+    const advice = [
         'Ne trci pred rudu!',
         'Dodjoh, videh, pobedih!',
         'Prvo skoci, pa reci hop!',
@@ -18,6 +18,7 @@ const generateAdvice = () => {
 
     return advice[Math.floor(Math.random() * advice.length)]
 }
+
 
 adviceChanger.addEventListener('cilck', () => {
     adviceText.textContent = generateAdvice()
