@@ -175,25 +175,14 @@ btn2.addEventListener('click', () => {
 
 const btn3 = document.querySelector('#btn3')
 
-const najjaci = () => {
+function najjaci(arr){
 
-    pokemoni.sort((a, b) => (a.karakteristike.napad > b.karakteristike.napad ? 1 : (a.karakteristike.napad < b.karakteristike.napad ? -1 : 0)));
+    arr.sort(function(a, b) {return b.karakteristike.napad - a.karakteristike.napad});
 }
 
 btn3.addEventListener('click', () => {
 
     najjaci(pokemoni)
 
-    for(let i = 0; i <= pokemoni[0]; i++){
-        let containerPoNapadu = document.createElement('div')
-        containerPoNapadu.classList.add('row')
-
-        let pNajjaci = document.createElement('p')
-        pNajjaci.textContent = pokemoni[i]
-
-        containerPoNapadu.append(pNajjaci)
-
-        body.append(containerPoNapadu)
-    }
-
+    izbaciPokemonePobrzini()
 })
