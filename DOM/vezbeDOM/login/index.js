@@ -17,6 +17,8 @@ const submit = document.querySelector('#submit')
 
 const errorMessage = document.querySelector('#login_form_error_message')
 
+const loginContentHeader = document.querySelector('#login_content_welcome_message')
+
 const generateAdvice = () => {
     const advice = [
         'Ne trci pred rudu!',
@@ -66,20 +68,21 @@ const clockGenerator = (container) => {
     let time = ''
     let amOrPm = 'AM'
 
-    if(hours > 12)
-        hours = hours - 12
-        amOrPm = 'PM'
-    
-    if(hours < 12)
+    if (hours < 12)
         amOrPm = "AM"
 
-    if(hours < 10)
+    if (hours > 12)
+        hours = hours - 12
+        amOrPm = 'PM'
+
+
+    if (hours < 10)
         hours = '0' + hours
 
-    if(minutes < 10)
+    if (minutes < 10)
         minutes = '0' + minutes
 
-    if(seconds < 10)
+    if (seconds < 10)
         seconds = '0' + seconds
 
     time = `${hours}:${minutes}:${seconds}${amOrPm}`
@@ -99,26 +102,66 @@ locationContainer.innerHTML = `
 Beograd, ${new Date().getFullYear()}. <br>
 Skupina entuzijasta fronendasa`
 
-function isFormInvalid(username, password){
-    if(username === '')
+function isFormInvalid(username, password) {
+    if (username.value.trim() === '')
         return true
-    
-    if(password === '')
+
+    if (password.value.trim() === '')
         return true
 
     return false
 }
 
-// function displayErrorMessage(username, password, errorMessageContainer, errorMessageText) {
-//     if(username === '')
+function displayErrorMessage(username, password, errorMessageContainer, errorMessageText) {
+    if (username.value.trim() === '')
+        userNameInput.style.borderColor = "red"
 
-// }
+    if (password.value.trim() === '')
+        passwordInput.style.borderColor = 'red'
 
-// submit.addEventListener('click', (event) => {
-//     event.preventDefault()
+    errorMessageContainer.textContent = errorMessageText
+    errorMessageContainer.style.color = 'red'
+    errorMessageContainer.style.transition = 'all .3s ease'
+    userNameInput.style.transition = 'all .3s ease'
+    passwordInput.style.transition = 'all .3s ease'
+    errorMessageContainer.style.opacity = '1'
 
-//     let user = {}
+    setTimeout(() => {
+        userNameInput.style.borderColor = '#FFF'
+        passwordInput.style.borderColor = '#FFF'
+        errorMessageContainer.style.opacity = '0'
+        errorMessageContainer.style.transition = 'all .3s ease'
+        userNameInput.style.transition = 'all .3s ease'
+        passwordInput.style.transition = 'all .3s ease'
 
-//     if(isFormInvalid(userNameInput, passwordInput))
+    }, 2000);
+}
 
-// })
+function dobaDana(clockContainerChars, user){
+    if(clockContainerChars.textContent.charAt(8) === 'P')
+        return `Dobar dan, dobrodosao ${user.username}`
+
+    if(clockContainer.textContent.charAt(8) === 'A')
+        return `Dobro jutro, dobrodosao ${user.username}`
+}
+
+form.addEventListener('submit', (event) => {
+    event.preventDefault()
+
+    let user = {}
+
+    if (isFormInvalid(userNameInput, passwordInput)) {
+        displayErrorMessage(userNameInput, passwordInput, errorMessage, 'Popunite sva polja')
+        return
+    }
+
+    user = usersArr.find(el => el.username === userNameInput.value.trim() && el.password === passwordInput.value.trim())
+
+    if (user === undefined) {
+        displayErrorMessage(userNameInput, passwordInput, errorMessage, 'Ne postoji korisnik')
+        return
+    }
+
+        loginContentHeader.textContent = dobaDana(clockContainer, user)
+
+})
