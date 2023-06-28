@@ -58,7 +58,7 @@ let pokemoni = [
         vrsta: "elektricni",
         sposobnosti: ["elektricni_udar", "visestruka_munja"],
         karakteristike: {
-            napad: 50,
+            napad: 60,
             odbrana: 30,
             brzina: 90
         },
@@ -80,7 +80,7 @@ let pokemoni = [
         vrsta: "vodeni",
         sposobnosti: ["vodeni_top", "vodena_kugla"],
         karakteristike: {
-            napad: 40,
+            napad: 50,
             odbrana: 30,
             brzina: 80
         },
@@ -124,7 +124,7 @@ btn1.addEventListener('click', () => {
 reset.addEventListener('click', () => {
     while (sposobnost.hasChildNodes()) {
         sposobnost.removeChild(sposobnost.childNodes[0])
-        
+
     }
 
     while (izlistajPoBrzini.hasChildNodes()) {
@@ -137,6 +137,7 @@ reset.addEventListener('click', () => {
 // 3. Сортирати покемоне по брзини, растуће.
 
 let izlistajPoBrzini = document.createElement('div')
+izlistajPoBrzini.add.classList = 'listaPokemona'
 
 body.append(izlistajPoBrzini)
 
@@ -175,14 +176,73 @@ btn2.addEventListener('click', () => {
 
 const btn3 = document.querySelector('#btn3')
 
-function najjaci(arr){
+function najjaci(arr) {
 
-    arr.sort(function(a, b) {return b.karakteristike.napad - a.karakteristike.napad});
+    arr.sort(function (a, b) { return b.karakteristike.napad - a.karakteristike.napad });
+}
+
+const izlistajJednog = (arr) => {
+
+    let poBrzini = document.createElement('div')
+    poBrzini.classList.add('row')
+
+    let pImePoBrzini = document.createElement('p')
+    pImePoBrzini.textContent = arr[0].ime
+
+    let pSlika = document.createElement('img')
+    pSlika.src = arr[0].slikaUrl
+
+    poBrzini.append(pImePoBrzini, pSlika)
+    izlistajPoBrzini.append(poBrzini)
 }
 
 btn3.addEventListener('click', () => {
 
     najjaci(pokemoni)
 
+    izlistajJednog(pokemoni)
+})
+
+// 5. За дати html направити скрипту која:
+// 	```
+// 	    <div class="wrapper">
+// 			<button id="prikaz">PRIKAZI POKEMONE</button>
+// 			<button id="pobednik">PRIKAZI NAJJACEG POKEMONA</button>
+// 		</div>
+// 	```
+
+// 	*На клик на дугме прикажи покемоне приказује све покемоне из низа у формату :
+
+//     ```
+// 	    <div>
+//             <p>Opis pokemona</p>
+//             <img src="slika odgovarajućeg pokemona">
+//         </div>
+//     ```
+
+// 	*На клик на дугме прикажи најјачег покемона приказује покемона који има најјачи напад (користити већ написану функцију иѕ 4. задатка) по истом формату.
+
+const buttonContainer = document.querySelector('.wrapper')
+buttonContainer.style.display = 'flex'
+buttonContainer.style.columnGap = '2rem'
+buttonContainer.style.paddingTop = '1rem'
+
+const allPokemons = document.querySelector('#sviPokemoni')
+
+const fight = document.querySelector('#najjaciPokemon')
+
+allPokemons.addEventListener('click', () => {
+    izbaciPokemonePobrzini(pokemoni)
+})
+
+fight.addEventListener('click', () => {
+
     izbaciPokemonePobrzini()
+
+    setTimeout(() => {
+
+        for(let i = 1; i <= izlistajPoBrzini.length; i++){
+            
+        }
+    }, 1500);
 })
