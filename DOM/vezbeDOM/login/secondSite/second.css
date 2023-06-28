@@ -1,0 +1,78 @@
+* {
+    margin: 0;
+    padding: 0;
+    color: #FFF;
+    font-size: large;
+}
+
+body {
+    background: url(../pictures/tareq-ajalyakin-72aEtYlS5K0-unsplash.jpg);
+    background-position: left;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 100vh;
+    padding: 0 7rem;
+    display: flex;
+    align-items: center;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.5rem;
+    flex-wrap: wrap;
+    column-gap: 2rem;
+}
+
+input {
+    margin-bottom: 0.5rem;
+    background: transparent;
+    outline: none;
+    border: #FFF 2px solid;
+    border-radius: 15px;
+    padding: 0.2rem;
+}
+
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+}
+
+.unos_brojeva {
+    display: flex;
+    flex-direction: row;
+    height: 94vh;
+}
+
+#trosak {
+    border: #FFF solid 1px;
+    width: fit-content;
+    background-color: rgba(0, 255, 0, 0.288);
+    padding: .2rem;
+}
+
+#rezultat_trosak {
+    background-color: rgba(0, 255, 0, 0.288);
+}
+
+#kolicina_nedelja_sa_viskom {
+    background-color: rgba(225, 0, 255, 0.192);
+}
+
+#trosak_po_nedelji {
+    background-color: rgba(25, 0, 255, 0.336);
+}
+
+#trosak_za_nepunu_nedelju {
+    background-color: rgba(217, 255, 0, 0.336);
+}
+
+#mesecna_stednja {
+    background-color: rgba(255, 0, 0, 0.336);
+}
+
+#btn {
+    background-color: rgba(137, 43, 226, 0.384);
+    border-radius: 15px;
+    cursor: pointer;
+}

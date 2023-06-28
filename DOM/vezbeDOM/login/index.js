@@ -1,4 +1,9 @@
 // const adviceContainer = document.querySelector('#login_content_advice')
+
+const loginForm = document.querySelector('.login_form')
+
+const loginContent = document.querySelector('.login_content')
+
 const adviceText = document.querySelector('#login_content_advice_text')
 
 const adviceChanger = document.querySelector('#login_content_advice_changer')
@@ -7,7 +12,7 @@ const clockContainer = document.querySelector('#login_content_clock')
 
 const locationContainer = document.querySelector('#login_content_location')
 
-const form = document.querySelector('form')
+const form = document.querySelector('#forma')
 
 const userNameInput = document.querySelector('#username')
 
@@ -163,5 +168,15 @@ form.addEventListener('submit', (event) => {
     }
 
         loginContentHeader.textContent = dobaDana(clockContainer, user)
+
+        setTimeout(() => {
+            loginForm.style.animationName = 'dissapear'
+            loginContent.style.animationName = 'dissapear'
+        }, 1000);
+
+        setTimeout(() => {
+            submit.setAttribute(onclick, location.href='./secondSite/second.html')
+            
+        }, 2000);
 
 })

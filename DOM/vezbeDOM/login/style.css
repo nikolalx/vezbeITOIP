@@ -23,7 +23,6 @@ label {
 
 .login_form {
     width: 500px;
-    
 }
 
 form {
@@ -54,9 +53,10 @@ form:hover h1 {
 form:hover {
     background-color: #53007413;
     backdrop-filter: blur(0);
-} 
+}
 
-[type='text'], [type='password'] {
+[type='text'],
+[type='password'] {
     font-size: 1.8rem;
     text-align: center;
     background-color: transparent;
@@ -107,7 +107,7 @@ form:hover [type='submit'] {
     font-size: 1.5rem;
 }
 
-#login_content_advice_text{
+#login_content_advice_text {
     animation-name: none;
     animation-timing-function: ease;
     animation-duration: 1s;
@@ -138,10 +138,32 @@ form:hover [type='submit'] {
     }
 }
 
+
+
 #login_content_clock {
     font-size: 4rem;
 }
 
 #login_content_location {
     font-size: 1.5rem;
+}
+
+.login_form,
+.login_content {
+    animation-name: none;
+    animation-timing-function: ease;
+    animation-duration: 1s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
+}
+
+@keyframes dissapear {
+    0% {
+        opacity: 1;
+    }
+
+
+    100% {
+        opacity: 0;
+    }
 }

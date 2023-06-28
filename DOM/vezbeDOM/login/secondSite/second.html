@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Racunalo</title>
+    <link rel="stylesheet" href="second.css">
+    <script src="second.js" defer></script>
+</head>
+
+<body>
+
+    <h1 id="mesec_godina_dani">
+
+    </h1>
+
+    <div class="unos_brojeva">
+        <form action="">
+            <label for="plataL">Plata Lucia (minus cigare)</label>
+            <input type="number" name="lucia" id="plata_lucia">
+
+            <label for="plataN">Plata Nikola</label>
+            <input type="number" name="nikola" id="plata_nikola">
+
+            <label for="opcioni">Neocekivani ili izvanredni izdaci</label>
+            <input type="number" name="neocekivani" id="neocekivani" placeholder="npr. Poslovni rodjendani itd.">
+
+            <label for="total">Total</label>
+            <input type="number" name="total" id="totalni_iznos">
+
+            <label for="izdaciRedom">Svi redovni izdaci</label>
+
+            <label for="kirija">Kirija</label>
+            <input type="number" name="kirija" id="kirija" value="30000">
+
+            <label for="racuni">Racuni Lucia</label>
+            <input type="number" name="racuni" id="racuni" value="15000">
+
+            <label for="kredit">Kredit Nikola</label>
+            <input type="number" name="kredit" id="kredit" value="5000">
+
+            <label for="kreditna">Kreditna kartica (po pola)</label>
+            <input type="number" name="kreditna" id="kreditna_kartica" value="10000">
+
+            <label for="vipl">Vip Lucia</label>
+            <input type="number" name="vipl" id="vip_lucia" value="2800">
+
+            <label for="vipn">Vip Nikola</label>
+            <input type="number" name="vipn" id="vip_nikola" value="4500">
+
+
+            <label for="gorivo">Gorivo Lucia</label>
+            <input type="number" name="gorivo" id="gorivo" value="6000">
+
+            <label for="hrana">Hrana Nikola</label>
+            <input type="number" name="hrana" id="hrana" value="40000">
+
+            <label for="terapija">Terapija Lucia</label>
+            <input type="number" name="terapija" id="terapija" value="6000">
+
+            <label for="netflix">Netflix, YTPremium itd. Lucia</label>
+            <input type="number" name="premium" id="premium" value="1500">
+
+            <label for="rodjendani">Redovni rodjendani Lucia</label>
+            <input type="number" name="rodjendani" id="rodjendani">
+
+            <label for="ostatakNakonIzdatka">Iznos nakon skinutih troskova</label>
+            <input type="number" name="ostatakNakonIzdatka" id="iznos_nakon_troskova">
+
+            <label for="Trosak" id="trosak">Trosak</label>
+            <input type="number" name="trosak" id="rezultat_trosak">
+
+            <label for="kolikoNedelja">Koliko nedelja i koji je visak dana</label>
+            <input type="number" name="kolicinaNedelja" id="kolicina_nedelja_sa_viskom">
+
+            <label for="trosakPoNedelji">Trosak po nedelji i trosak za nepunu nedelju</label>
+            <input type="number" name="trosakPoNedelji" id="trosak_po_nedelji">
+            <input type="number" name="nepunaNedelja" id="trosak_za_nepunu_nedelju">
+
+            <label for="mesecnaStednja">Projekcija mesecne stednje</label>
+            <input type="number" name="mesecnaStednja" id="mesecna_stednja">
+
+            <input type="submit" value="Racunaj!" id="btn">
+        </form>
+    </div>
+</body>
+
+</html>
